@@ -1,0 +1,45 @@
+// Lớp ContinuousSignal đại diện cho tín hiệu liên tục và kế thừa từ giao diện Signal
+public class ContinuousSignal implements Signal {
+    private double amplitude;
+    private double frequency;
+    private double period;
+    private double wavelength;
+
+    public ContinuousSignal(double amplitude, double frequency, double period, double wavelength) {
+        this.amplitude = amplitude;
+        this.frequency = frequency;
+        this.period = period;
+        this.wavelength = wavelength;
+    }
+
+    @Override
+    public double getAmplitude() {
+        return amplitude;
+    }
+
+    @Override
+    public double getFrequency() {
+        return frequency;
+    }
+
+    @Override
+    public double getPeriod() {
+        return period;
+    }
+
+    @Override
+    public double getWavelength() {
+        return wavelength;
+    }
+
+    @Override
+    public String describeSignalType() {
+        return "This is a continuous signal.";
+    }
+
+    @Override
+    public double calculateValueAtTime(double time) {
+        // Tín hiệu có giá trị tại mọi thời điểm trong miền thời gian
+        return amplitude * Math.sin(2 * Math.PI * frequency * time);
+    }
+}
